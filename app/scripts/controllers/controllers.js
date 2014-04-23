@@ -15,7 +15,7 @@ app.run(function ($rootScope, $templateCache) {
     });
 });
 
-
+/* Test Controller Method */
 app.controller('DummyCtrl', ['$scope', 'DummyFactory', function ($scope, DummyFactory) {
     $scope.bla = 'bla from controller';
     DummyFactory.query({}, function (data) {

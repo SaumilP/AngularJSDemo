@@ -4,7 +4,7 @@ angular.module('angularDemoApp', [
     'ngRoute',
     'angularDemoApp.services',
     'angularDemoApp.controllers'
-]).config(function ($routeProvider /*,$httpProvider*/) {
+]).config(['$routeProvider', '$httpProvider',function ($routeProvider ,$httpProvider) {
     $routeProvider.when('/dummy', {templateUrl: 'views/dummy.html', controller: 'DummyCtrl'});
     $routeProvider.when('/user-list', {templateUrl: 'views/user-list.html', controller: 'UserListCtrl'});
     $routeProvider.when('/user-detail/:id', {templateUrl: 'views/user-detail.html', controller: 'UserDetailCtrl'});
@@ -12,9 +12,9 @@ angular.module('angularDemoApp', [
     $routeProvider.otherwise({redirectTo: '/dummy'});
 
     /* CORS... */
-    //$httpProvider.defaults.useXDomain = true;
-    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-});
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}]);
 
 
     //.config(function ($routeProvider /*,$httpProvider*/) {
